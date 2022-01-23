@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct _dMCparticleApp: App {
+    @StateObject var oneD = OneDScattering()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(oneD)
         }
     }
 }

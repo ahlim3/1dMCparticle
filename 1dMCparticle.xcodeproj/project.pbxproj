@@ -13,6 +13,8 @@
 		430D41AB279B92E200B7A1C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430D4199279B92E100B7A1C9 /* ContentView.swift */; };
 		430D41AC279B92E200B7A1C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D419A279B92E200B7A1C9 /* Assets.xcassets */; };
 		430D41AD279B92E200B7A1C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D419A279B92E200B7A1C9 /* Assets.xcassets */; };
+		434225E5279CF904005D59F8 /* 1DScattering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434225E4279CF904005D59F8 /* 1DScattering.swift */; };
+		434225E6279CF904005D59F8 /* 1DScattering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434225E4279CF904005D59F8 /* 1DScattering.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,7 @@
 		430D419F279B92E200B7A1C9 /* 1dMCparticle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1dMCparticle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		430D41A5279B92E200B7A1C9 /* 1dMCparticle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 1dMCparticle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		430D41A7279B92E200B7A1C9 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		434225E4279CF904005D59F8 /* 1DScattering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1DScattering.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				430D4198279B92E100B7A1C9 /* _dMCparticleApp.swift */,
+				434225E4279CF904005D59F8 /* 1DScattering.swift */,
 				430D4199279B92E100B7A1C9 /* ContentView.swift */,
 				430D419A279B92E200B7A1C9 /* Assets.xcassets */,
 			);
@@ -176,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434225E5279CF904005D59F8 /* 1DScattering.swift in Sources */,
 				430D41AA279B92E200B7A1C9 /* ContentView.swift in Sources */,
 				430D41A8279B92E200B7A1C9 /* _dMCparticleApp.swift in Sources */,
 			);
@@ -185,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434225E6279CF904005D59F8 /* 1DScattering.swift in Sources */,
 				430D41AB279B92E200B7A1C9 /* ContentView.swift in Sources */,
 				430D41A9279B92E200B7A1C9 /* _dMCparticleApp.swift in Sources */,
 			);
