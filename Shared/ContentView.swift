@@ -39,33 +39,44 @@ struct ContentView: View
     @State var MediumLengthString = "10.0"
     @State var TotalBackwardinteractionString = ""
     @State var TotalinteractionString = ""
+    @State var TotalParticle = 0
+    @State var ToggleSwitch = 0
+    @State var InteractionAverage = 0.0
+    @State var InteractionArray = [Double]()
 
     
     func ParticleParameter(){
+        LocIndex = oneD.LocationIndex(Max: MediumLength, Step: PartStep)
+        LocArray = oneD.LocationArray(Max: MediumLength, Step: PartStep)
+        TotalInteractionArrayCount = LocIndex
+        TotalInteractionArrayCountIndex = LocArray
+        InteractionArray = LocArray
+        TotalParticle = 0
+    }
+    func ParticleFunction(){
         AbsPro = Double(AbsProString)!
         FwSctPro = Double(FwSctProString)!
         PartStep = Double(PartStepString)!
         MediumLength = Double(MediumLengthString)!
         PartLoc = Double(PartLocString)!
         NPart = Int(NPartString)!
-        LocIndex = oneD.LocationIndex(Max: MediumLength, Step: PartStep)
-        LocArray = oneD.LocationArray(Max: MediumLength, Step: PartStep)
-        TotalInteractionArrayCount = LocIndex
-        TotalInteractionArrayCountIndex = LocArray
-    }
-    func ParticleFunction(){
+        if ToggleSwitch == 0
+        {
         ParticleParameter()
+            ToggleSwitch = 1
+        }
         for i in 1 ... NPart{
             var PartLoc = PartLoc
-            var PartAbs = AbsPro
+            //var PartAbs = AbsPro
             var ParticleMaxD = 0.0
             var IndexLoc = 0
             var interaction = 1
             var backwardscattering = 0
             var dScatDec = 0.0
-            var PartTrackSingle = [Double]()
             var PartAbsDec = oneD.Absorption(AbsPro: AbsPro)
-            PartTrackSingle.append(PartLoc)
+            //var PartTrackSingle = [Double]()
+            //single particle track
+            //PartTrackSingle.append(PartLoc)
             TotalInteractionArrayCount[Int(PartLoc/PartStep)] = TotalInteractionArrayCount[Int(PartLoc/PartStep)] + 1
             while PartAbsDec < 1
             {
@@ -83,7 +94,8 @@ struct ContentView: View
                 else if PartLoc > 10.0 {
                     break
                 }
-                PartTrackSingle.append(PartLoc)
+                //single particle track
+                //PartTrackSingle.append(PartLoc)
                 PartAbsDec = oneD.Absorption(AbsPro: AbsPro)
                 if ParticleMaxD < PartLoc
                 {
@@ -97,6 +109,7 @@ struct ContentView: View
             //FinalParticleLocationArray.append(PartLoc)
             //MaxDArray.append(ParticleMaxD)
         }
+        TotalParticle = NPart + TotalParticle
         /// MaxDArray Maximum distance traveled by a particle
         //print(MaxDArray)
         //print(MaxDArray.reduce(0,+)/Double(MaxDArray.count))
@@ -107,16 +120,26 @@ struct ContentView: View
         //print(LocArray)
         ///Final Particle Location for each particle
         //print(FinalParticleLocationArray)
-        
+        print("Total Particle Number")
+        print(TotalParticle)
+        print("Interaction")
         print(TotalInteractionArrayCount)
+        print("Depth")
         print(TotalInteractionArrayCountIndex)
+        for i in 0 ... Int(MediumLength/PartStep) - 1
+        {
+            InteractionArray[i] = Double(TotalInteractionArrayCount[i]) * TotalInteractionArrayCountIndex[i]
+        }
+        print("Average interaction distance")
+        print(InteractionArray.reduce(0,+)/Double(TotalParticle))
+        
         //print(TotalBackwardInteractionArray.reduce(0,+))
         //print(TotalInteractionArray.reduce(0,+))
         
 
         
     }
-    
+    /*
     func SinglePart(){
         ParticleParameter()
         var CurrentLocation = 0.0
@@ -128,6 +151,7 @@ struct ContentView: View
         
         
     }
+     */
 
     
     var body: some View
@@ -209,6 +233,8 @@ struct ContentView: View
                 .padding(.top, 5.0)
             */
              Button("Execution", action: {self.ParticleFunction()})
+                .padding(.bottom, 5.0)
+            Button("Clear", action: {self.ParticleParameter()})
                 .padding(.bottom, 5.0)
             
         }
