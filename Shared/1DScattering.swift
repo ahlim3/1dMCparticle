@@ -17,12 +17,12 @@ class OneDScattering: ObservableObject{
     var PartLoc = 0.0
     
     ///Function for generating location index
-    func LocationIndex(Max: Double, Step: Double) -> [Double]
+    func LocationIndex(Max: Double, Step: Double) -> [Int]
     {
         let Max = Max
         let Step = Step
         let LocIndex = Int(Max/Step)
-        let LocationIndex = [Double](repeating: 0, count: LocIndex)
+        let LocationIndex = [Int](repeating: 0, count: LocIndex)
         return LocationIndex
     }
     
@@ -41,6 +41,24 @@ class OneDScattering: ObservableObject{
         }
         LocationArray.append(currentLoc)
         return LocationArray
+    }
+    
+    ///Function particle location termination determined by location
+    func PartLocIn(Minimum : Double, Maximum: Double, Location: Double) -> Int
+    {
+        // 0 within the range for particle inside the slap, 1 for outside the slap
+        var PartDecision = 0
+        if Location > Maximum{
+            PartDecision = 1
+        }
+        else if Location < Minimum{
+            PartDecision = 1
+        }
+        else
+        {
+            PartDecision = 0
+        }
+        return PartDecision
     }
     
     ///Function for absorption decision
@@ -74,6 +92,4 @@ class OneDScattering: ObservableObject{
         var PartLoc = PartLoc + ScatDec(PartStep: PartStep, ForwardScatteringProbability: FwSctPro)
         return PartLoc
     }
-    
-    
 }

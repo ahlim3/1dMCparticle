@@ -13,6 +13,8 @@
 		430D41AB279B92E200B7A1C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430D4199279B92E100B7A1C9 /* ContentView.swift */; };
 		430D41AC279B92E200B7A1C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D419A279B92E200B7A1C9 /* Assets.xcassets */; };
 		430D41AD279B92E200B7A1C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D419A279B92E200B7A1C9 /* Assets.xcassets */; };
+		43354A9727A3A1AE004EF648 /* CorePlot in Frameworks */ = {isa = PBXBuildFile; productRef = 43354A9627A3A1AE004EF648 /* CorePlot */; };
+		43354A9A27A3A1D5004EF648 /* CorePlot in Frameworks */ = {isa = PBXBuildFile; productRef = 43354A9927A3A1D5004EF648 /* CorePlot */; };
 		434225E5279CF904005D59F8 /* 1DScattering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434225E4279CF904005D59F8 /* 1DScattering.swift */; };
 		434225E6279CF904005D59F8 /* 1DScattering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434225E4279CF904005D59F8 /* 1DScattering.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43354A9727A3A1AE004EF648 /* CorePlot in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43354A9A27A3A1D5004EF648 /* CorePlot in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +55,7 @@
 				430D4197279B92E100B7A1C9 /* Shared */,
 				430D41A6279B92E200B7A1C9 /* macOS */,
 				430D41A0279B92E200B7A1C9 /* Products */,
+				43354A9827A3A1D5004EF648 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +87,13 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
+		43354A9827A3A1D5004EF648 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,6 +110,9 @@
 			dependencies = (
 			);
 			name = "1dMCparticle (iOS)";
+			packageProductDependencies = (
+				43354A9627A3A1AE004EF648 /* CorePlot */,
+			);
 			productName = "1dMCparticle (iOS)";
 			productReference = 430D419F279B92E200B7A1C9 /* 1dMCparticle.app */;
 			productType = "com.apple.product-type.application";
@@ -115,6 +130,9 @@
 			dependencies = (
 			);
 			name = "1dMCparticle (macOS)";
+			packageProductDependencies = (
+				43354A9927A3A1D5004EF648 /* CorePlot */,
+			);
 			productName = "1dMCparticle (macOS)";
 			productReference = 430D41A5279B92E200B7A1C9 /* 1dMCparticle.app */;
 			productType = "com.apple.product-type.application";
@@ -146,6 +164,9 @@
 				Base,
 			);
 			mainGroup = 430D4192279B92E100B7A1C9;
+			packageReferences = (
+				43354A9527A3A1AE004EF648 /* XCRemoteSwiftPackageReference "core-plot" */,
+			);
 			productRefGroup = 430D41A0279B92E200B7A1C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -458,6 +479,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		43354A9527A3A1AE004EF648 /* XCRemoteSwiftPackageReference "core-plot" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/core-plot/core-plot.git";
+			requirement = {
+				branch = "release-2.4";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		43354A9627A3A1AE004EF648 /* CorePlot */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43354A9527A3A1AE004EF648 /* XCRemoteSwiftPackageReference "core-plot" */;
+			productName = CorePlot;
+		};
+		43354A9927A3A1D5004EF648 /* CorePlot */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43354A9527A3A1AE004EF648 /* XCRemoteSwiftPackageReference "core-plot" */;
+			productName = CorePlot;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 430D4193279B92E100B7A1C9 /* Project object */;
 }
